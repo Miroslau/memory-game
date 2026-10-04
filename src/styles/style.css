@@ -3,4 +3,106 @@
 
 :root {
     font-family: 'Bubblegum Sans', system-ui, -apple-system, sans-serif;
+
+    --bg-color: #f0f4f8;
+    --text-color: #2c3e50;
+
+    --color-primary: #ff6b6b;
+    --color-primary-hover: #ff5252;
+    --color-secondary: #4dadf7;
+    --color-secondary-hover: #339af0;
+
+    --board-max-width: 600px;
+    --card-gap: 12px;
 }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+#app {
+    width: 100%;
+    max-width: var(--board-max-width);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.header__title {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+.header__controls {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+}
+
+.button {
+    font-size: 1.25rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.button:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.button_primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.button_primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.button_secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.button_secondary:hover {
+    background-color: var(--color-secondary-hover);
+}
+
+.game-container {
+    width: 100%;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: var(--card-gap);
+    width: 100%;
+    background: white;
+    padding: 16px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    min-height: 300px;
+}
+
+
