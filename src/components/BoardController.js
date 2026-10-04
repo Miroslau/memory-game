@@ -1,4 +1,5 @@
 import Card from './Card';
+import StorageService from '../core/StorageService';
 
 class BoardController {
   constructor(gameBoardComponent, gameEngineInstance, scoreboardComponent) {
@@ -78,6 +79,7 @@ class BoardController {
   }
 
   _handleGameOver() {
+    StorageService.saveRecords(this.engine.moves);
     setTimeout(() => {
       alert(`Поздравляем! Вы прошли игру за ${this.engine.moves} ходов!`);
     }, 500);
