@@ -40,6 +40,10 @@ body {
     align-items: center;
     gap: 16px;
     text-align: center;
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .header__title {
@@ -95,20 +99,35 @@ body {
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--card-gap);
     width: 100%;
     background: white;
     padding: 16px;
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    min-height: 300px;
 }
 
 .card {
     aspect-ratio: 1 / 1;
     perspective: 1000px;
     cursor: pointer;
+
+    opacity: 0;
+    transform: scale(0.3) rotate(-5deg);
+
+    animation: deal-card 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes deal-card {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 .card__content {

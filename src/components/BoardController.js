@@ -23,9 +23,12 @@ class BoardController {
     this.scoreboard.updateMoves(this.engine.moves);
     this.scoreboard.updatePairs(this.engine.matchedPairs, this.engine.baseValues.length);
 
-    shuffledCards.forEach((item) => {
+    shuffledCards.forEach((item, index) => {
       const card = new Card(item.id, item.value);
       this.cardComponents.push(card);
+
+      const delayInSeconds = index * 0.04;
+      card.getElement().style.animationDelay = `${delayInSeconds}s`;
 
       card.getElement().addEventListener('click', () => this._onCardClick(card));
 
