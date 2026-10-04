@@ -18,7 +18,9 @@ class Board extends Component {
 
   clear() {
     if (this.boardElement) {
-      this.boardElement.innerHTML = '';
+      while (this.boardElement.firstChild) {
+        this.boardElement.removeChild(this.boardElement.firstChild);
+      }
     }
   }
 }
