@@ -1,5 +1,6 @@
 import Card from './Card';
 import StorageService from '../core/StorageService';
+import WinModal from './WinModal';
 
 class BoardController {
   constructor(gameBoardComponent, gameEngineInstance, scoreboardComponent) {
@@ -81,7 +82,8 @@ class BoardController {
   _handleGameOver() {
     StorageService.saveRecords(this.engine.moves);
     setTimeout(() => {
-      alert(`Поздравляем! Вы прошли игру за ${this.engine.moves} ходов!`);
+      const winModal = new WinModal(this.engine.moves, () => this.startNewGame());
+      winModal.open();
     }, 500);
   }
 }
