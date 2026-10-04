@@ -1,0 +1,6 @@
+@import "reset.css";
+@import "font.css";
+
+:root {
+    font-family: 'Bubblegum Sans', system-ui, -apple-system, sans-serif;
+}

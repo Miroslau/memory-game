@@ -1,0 +1,38 @@
+{
+  "name": "memory-game",
+  "version": "1.0.0",
+  "description": "the browser game",
+  "keywords": [
+    "JS",
+    "HTML",
+    "CSS",
+    "Game"
+  ],
+  "homepage": "https://github.com/Miroslau/memory-game#readme",
+  "bugs": {
+    "url": "https://github.com/Miroslau/memory-game/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miroslau/memory-game.git"
+  },
+  "license": "ISC",
+  "author": "Miraslau Rabikau",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{js,css,scss}\""
+  },
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.2"
+  }
+}
