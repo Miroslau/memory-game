@@ -2,6 +2,8 @@ import './styles/style.css';
 import Header from './components/Header.js';
 import Board from './components/Board';
 import Card from './components/Card';
+import GmeEngine from './core/GmeEngine';
+import BoardController from './components/BoardController';
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.querySelector('#app');
@@ -16,15 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   app.append(headerComponent.getElement(), gameBoardComponent.getElement());
 
-  const testItems = ['🍎', '🍌', '🍎', '🍌'];
+  const emojis = ['🍎', '🍌', '🍇', '🍉', '🍓', '🍒', '🥑', '🥝'];
 
-  testItems.forEach((emoji, index) => {
-    const card = new Card(`card-${index}`, emoji);
+  const gameEngine = new GmeEngine(emojis);
+  const boardController = new BoardController(gameBoardComponent, gameEngine);
 
-    card.getElement().addEventListener('click', () => {
-      card.flip();
-    });
-
-    gameBoardComponent.boardElement.append(card.getElement());
-  });
+  boardController.startNewGame();
 });
