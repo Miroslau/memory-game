@@ -1,9 +1,10 @@
 import Card from './Card';
 
 class BoardController {
-  constructor(gameBoardComponent, gameEngineInstance) {
+  constructor(gameBoardComponent, gameEngineInstance, scoreboardComponent) {
     this.gameBoard = gameBoardComponent;
     this.engine = gameEngineInstance;
+    this.scoreboard = scoreboardComponent;
     this.cardComponents = [];
     this.mismatchTimeoutId = null;
     this.activeMismatchCards = [];
@@ -16,6 +17,9 @@ class BoardController {
     this.cardComponents = [];
 
     const shuffledCards = this.engine.init();
+
+    this.scoreboard.updateMoves(this.engine.moves);
+    this.scoreboard.updatePairs(this.engine.matchedPairs, this.engine.baseValues.length);
 
     shuffledCards.forEach((item) => {
       const card = new Card(item.id, item.value);
@@ -47,6 +51,9 @@ class BoardController {
     }
 
     const result = this.engine.handleSelect(cardInstance);
+
+    this.scoreboard.updateMoves(this.engine.moves);
+    this.scoreboard.updatePairs(this.engine.matchedPairs, this.engine.baseValues.length);
 
     switch (result.action) {
       case 'match':

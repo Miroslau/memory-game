@@ -168,4 +168,36 @@ body {
     100% { transform: rotateY(180deg) scale(1); }
 }
 
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 12px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.scoreboard__item {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.scoreboard__label {
+    color: #7f8c8d;
+}
+
+.scoreboard__value {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+    transition: transform 0.1s ease;
+    display: inline-block;
+}
+
+.scoreboard__value.highlight {
+    color: var(--color-secondary);
+}
+
 
