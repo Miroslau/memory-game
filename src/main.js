@@ -29,4 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const boardController = new BoardController(gameBoardComponent, gameEngine, scoreboardComponent);
 
   boardController.startNewGame();
+
+  const newGameButton = document.querySelector('#new-game-btn');
+
+  if (newGameButton) {
+    newGameButton.addEventListener('click', () => {
+      boardController.startNewGame();
+    });
+  }
 });
